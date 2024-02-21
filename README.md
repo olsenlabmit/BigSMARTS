@@ -17,7 +17,7 @@ Molecular search is important in chemistry, biology, and informatics for identif
 
 # Test Cases
 | BigSMARTS | Meaning| # BigSMILES Hits |
-| --- | --- | --- |
+| :---- | :---: | :---: |
 | CCO | SMARTS that searches an entire BigSMILES | 207 |
 | {[]CCO[]} | localizes hits to the repeat units | 198 |
 | {[][<]CCO[>][]} | localizes hits to the target repeat unit backbones | 68 |
@@ -26,10 +26,10 @@ Molecular search is important in chemistry, biology, and informatics for identif
 | {[][<][CH2][CH2]O[>],!*;!*[]} | prevents matches to extra repeat units and end groups not specified in the query | 1 |
 
 | BigSMARTS | Change | # BigSMILES Hits |
-| --- | --- | --- |
+| :---- | :---: | :---:
 | {[][<]CCO[>][]} | PEG backbone search | 68 |
 | {[][>]CCO[<][]} | change in bonding descriptors | 68 |
-| {[][<]COC[>][]} | change in bonding descriptors | 68 |
+| {[][<]COC[>][]} | frame shift | 68 |
 | {[][<]OCC[>][]} | inversion | 68 |
 | {[][<]C[<2],[>2]CO[>][]} | split | 68 |
 | {[][<]CCO[>],[<]CCO[>][]} | duplication | 68 |
