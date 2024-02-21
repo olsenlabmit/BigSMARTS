@@ -60,21 +60,21 @@ Molecular search is important in chemistry, biology, and informatics for identif
 
 **Table 5.** Topological graph queries.
 
-| BigSMARTS | Change | # BigSMILES Hits |
+| BigSMARTS | Meaning | # BigSMILES Hits |
 | :---- | :---: | :---:
 | {[][]} | wildcard stochastic object, matches to all polymers | 489 |
 | {[][]}!{[][]} | only one stochastic object, does not match to diblocks, triblocks, or stars | 382 |
 | {[][]}?*{[][]} | diblock substructure, can match to triblocks and tetrablocks | 107 |
-| {[][]}?*{[][]}!{[][]} diblock substructure with no other blocks | 78 |
-| {[][]}?*{[][]}?*{[][]} | triblock substructure, can match to tetrablocks and hexablocks | 15 |
-| {[][]}?*{[][]}?*{[][]}!{[][]} | triblock substructure with no other blocks | 2 |
-| {[][<]?*{[>][<]?*[>][<]}?*[>][]} | segmented topology (nested object along the backbone) | 10 |
-| {[][<]?*(?*{[>][<]?*[>][]})?*[>][]} | graft topology (nested object on the sidechain | 11 |
-| {[][]}?*(?*{[][]})?*{[][]} | 3-arm star polymer substructure | 21 |
+| {[][]}?*{[][]}!{[][]} | diblock substructure with no other blocks | 78 |
+| {[][]}?\*{[][]}?\*{[][]} | triblock substructure, can match to tetrablocks and hexablocks | 15 |
+| {[][]}?\*{[][]}?\*{[][]}!{[][]} | triblock substructure with no other blocks | 2 |
+| {[][<]?\*{[>][<]?\*[>][<]}?\*[>][]} | segmented topology (nested object along the backbone) | 10 |
+| {[][<]?\*(?\*{[>][<]?\*[>][]})?\*[>][]} | graft topology (nested object on the sidechain) | 11 |
+| {[][]}?\*(?\*{[][]})?\*{[][]} | 3-arm star polymer substructure | 21 |
 
 **Table 6.** Functonal groups along the backbone queries.
 
-| BigSMARTS | Change | # BigSMILES Hits |
+| BigSMARTS | Chemistry Class | # BigSMILES Hits |
 | :---- | :---: | :---:
 | {[][<]C(=O)O?*[>][]} | polyester | 75 |
 | {[][<]OC(=O)O?*[>][]} | polycarbonate | 29 |
