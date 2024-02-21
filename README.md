@@ -10,20 +10,24 @@ Molecular search is important in chemistry, biology, and informatics for identif
 - The validation spreadsheet contains a matrix of query and target polymer searches that validate the substructure search algorithm, not yet released.
 - The tabs are classified by query topology, including single stochastic object (homopolymer, random copolymer, AA-BB copolymer), block, graft, star, and polymer network. 
 - The queries in row 1 are written in BigSMARTS line notation, and the targets in column A are written in BigSMILES line notation. Every BigSMARTS is searched in all BigSMILES.
-- Every BigSMARTS query tests a rule, for example, cyclic permutations, monomer splits, inversions, and frame shifts should not affect the number of matches.
+- Every BigSMARTS query tests a rule; for example, cyclic permutations, monomer splits, inversions, and frame shifts should not affect the number of matches.
 - Every BigSMILES target is a real polymer from peer-reviewed scientific literature, with the source written.
-- A 0 or a 1 is handwritten depending on whether a substructure match is expected between the query and target. 
-- The queries become more restricted moving from left to right. 
+- A 0 or a 1 is handwritten depending on whether a substructure match is expected between the query and target. The substructure search algorithm validates this.
 
 # Test Cases
+
+BigSMARTS queries can be written with increasing restriction on the target ensemble depending on the grammatical elements used.
+
 | BigSMARTS | Meaning| # BigSMILES Hits |
 | :---- | :---: | :---: |
 | CCO | SMARTS that searches an entire BigSMILES | 207 |
 | {[]CCO[]} | localizes hits to the repeat units | 198 |
 | {[][<]CCO[>][]} | localizes hits to the target repeat unit backbones | 68 |
 | {[][<][CH2][CH2]O[>][]} | prevents matches to pendant groups not specified in the query | 57 |
-| {[][<][CH2][CH2]O[>],!*[]} | prevents matches to extra repeat units not specified in the query | 45 |
-| {[][<][CH2][CH2]O[>],!*;!*[]} | prevents matches to extra repeat units and end groups not specified in the query | 1 |
+| {[][<][CH2][CH2]O[>],!\*[]} | prevents matches to extra repeat units not specified in the query | 45 |
+| {[][<][CH2][CH2]O[>],!\*\;!\*[]} | prevents matches to extra repeat units and end groups not specified in the query | 1 |
+
+Different string representations of the same molecular ensemble will not affect the number of matches.
 
 | BigSMARTS | Change | # BigSMILES Hits |
 | :---- | :---: | :---:
@@ -33,6 +37,8 @@ Molecular search is important in chemistry, biology, and informatics for identif
 | {[][<]OCC[>][]} | inversion | 68 |
 | {[][<]C[<2],[>2]CO[>][]} | split | 68 |
 | {[][<]CCO[>],[<]CCO[>][]} | duplication | 68 |
+
+These are simple cases, but there is no restriction on the number of repeat units and end groups in the query and target, greatly increasing the complexity of search. The algorithm handles all of these cases.
 
 # Repository Location
 http://doi.org/10.5281/zenodo.4780309
