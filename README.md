@@ -27,7 +27,7 @@ Molecular search is important in chemistry, biology, and informatics for identif
 | {[][<][CH2][CH2]O[>],!\*[]} | prevents matches to extra repeat units not specified in the query | 45 |
 | {[][<][CH2][CH2]O[>],!\*\;!\*[]} | prevents matches to extra repeat units and end groups not specified in the query | 1 |
 
-**Table 2.** Repeat unit mutations that do not affect the query ensemble.
+**Table 2.** Repeat unit mutations that do not affect the targets matched.
 
 | BigSMARTS | Change | # BigSMILES Hits |
 | :---- | :---: | :---:
