@@ -42,7 +42,7 @@ Molecular search is important in chemistry, biology, and informatics for identif
 
 | BigSMARTS | Change | # BigSMILES Hits |
 | :---- | :---: | :---:
-| {[][>]CC(c1ccccc1)[<][>]}?*{[>][<]CC(C(=O)O)[>][]} | polystyrene - polyacrylate block substructure with wildcard linker | 11 |
+| {[][>]CC(c1ccccc1)[<][>]}?*{[>][<]CC(C(=O)O)[>][]} | polystyrene-*b*-polyacrylate block substructure with wildcard linker | 11 |
 | {[][$]CC(c1ccccc1)[$][$]}{[$][$]CC(C(=O)O)[$][]} | no wildcard linker | 7 |
 | {[][$]CC(C(=O)O)[$][$]}{[$][$]CC(c1ccccc1)[$][]} | flip the blocks | 7 |
 | {[][<]CC(c1ccccc1)[>][<]}{[>][<]CC(C(=O)O)[>][]} | head-to-tail repeat units only | 7 |
@@ -60,6 +60,8 @@ Molecular search is important in chemistry, biology, and informatics for identif
 
 **Table 5.** Topological graph queries.
 
+| BigSMARTS | Change | # BigSMILES Hits |
+| :---- | :---: | :---:
 | {[][]} | wildcard stochastic object, matches to all polymers | 489 |
 | {[][]}!{[][]} | only one stochastic object, does not match to diblocks, triblocks, or stars | 382 |
 | {[][]}?*{[][]} | diblock substructure, can match to triblocks and tetrablocks | 107 |
@@ -72,6 +74,8 @@ Molecular search is important in chemistry, biology, and informatics for identif
 
 **Table 6.** Functonal groups along the backbone queries.
 
+| BigSMARTS | Change | # BigSMILES Hits |
+| :---- | :---: | :---:
 | {[][<]C(=O)O?*[>][]} | polyester | 75 |
 | {[][<]OC(=O)O?*[>][]} | polycarbonate | 29 |
 | {[][<]NC(=O)O?*[>][]} | polyurethane | 1 |
