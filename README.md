@@ -20,9 +20,9 @@ Molecular search is important in chemistry, biology, and informatics for identif
 
 | BigSMARTS | Meaning| # BigSMILES Hits |
 | :---- | :---: | :---: |
-| CCO | SMARTS that searches an entire BigSMILES | 207 |
-| {[]CCO[]} | localizes hits to the repeat units | 198 |
-| {[][<]CCO[>][]} | localizes hits to the target repeat unit backbones | 68 |
+| CCO | ethanol SMARTS that searches an entire BigSMILES | 207 |
+| {[]CCO[]} | ethanol SMARTS that localizes hits to the repeat units | 198 |
+| {[][<]CCO[>][]} | PEG query with wildcard end groups that localizes hits to the repeat unit backbones | 68 |
 | {[][<][CH2][CH2]O[>][]} | prevents matches to pendant groups not specified in the query | 57 |
 | {[][<][CH2][CH2]O[>],!\*[]} | prevents matches to extra repeat units not specified in the query | 45 |
 | {[][<][CH2][CH2]O[>],!\*\;!\*[]} | prevents matches to extra repeat units and end groups not specified in the query | 1 |
@@ -37,6 +37,46 @@ Molecular search is important in chemistry, biology, and informatics for identif
 | {[][<]OCC[>][]} | inversion | 68 |
 | {[][<]C[<2],[>2]CO[>][]} | split | 68 |
 | {[][<]CCO[>],[<]CCO[>][]} | duplication | 68 |
+
+**Table 3.** Block copolymer query-target pairings.
+
+| BigSMARTS | Change | # BigSMILES Hits |
+| :---- | :---: | :---:
+| {[][>]CC(c1ccccc1)[<][>]}?*{[>][<]CC(C(=O)O)[>][]} | polystyrene - polyacrylate block substructure with wildcard linker | 11 |
+| {[][$]CC(c1ccccc1)[$][$]}{[$][$]CC(C(=O)O)[$][]} | no wildcard linker | 7 |
+| {[][$]CC(C(=O)O)[$][$]}{[$][$]CC(c1ccccc1)[$][]} | flip the blocks | 7 |
+| {[][<]CC(c1ccccc1)[>][<]}{[>][<]CC(C(=O)O)[>][]} | head-to-tail repeat units only | 7 |
+| {[][<]CC(c1ccccc1)[>],[<]CC(c1ccccc1)[>2],[<2]CC(C(=O)O)[>2][]} | a single stochastic object, but still encodes a diblock! | 7 |
+| {[][<]CC(c1ccccc1)[>];[<]CC(c1ccccc1){[>][<]CC(C(=O)O)[>][]}[]} | implicit/explicit end group representation| 7 |
+
+**Table 4.** Polymer network query-target pairings.
+
+| BigSMARTS | Change | # BigSMILES Hits |
+| :---- | :---: | :---:
+| {[][<]CCCCC(C)(C)C(=O)O{[>][<]CCO[>][<]}C(=O)C(C)(C)CCCC[<],[>]n1cc([<2])nn1,[>2]COCC(COC[>2])(COC[>2])C[]} | A2 + B3 polymer network | 2 |
+| {[][<]CCCCC(C)(C)C(=O)O{[>][<]CCOCCO[>][<]}C(=O)C(C)(C)CCCC[<],[>]n1cc([<2])nn1,[>2]COCC(COC[>2])(COC[>2])C[]} | duplicated nested repeat unit | 2 |
+| {[][<]CCCCC(C)(C)C(=O)O{[>][<]C[<3],[>3]CO[>][<]}C(=O)C(C)(C)CCCC[<],[>]n1cc([<2])nn1,[>2]COCC(COC[>2])(COC[>2])C[]} | nested repeat unit split | 2 |
+| {[][>]CCCCC(C)(C)C(=O)O{[>][<]CCO[>][<]}C(=O)C(C)(C)CCCC[>],[<]n1cc([<5])nn1,[>5]COCC(COC[>5])(COC[>5])C[]} | change in bonding descriptors | 2 |
+
+**Table 5.** Topological graph queries.
+
+| {[][]} | wildcard stochastic object, matches to all polymers | 489 |
+| {[][]}!{[][]} | only one stochastic object, does not match to diblocks, triblocks, or stars | 382 |
+| {[][]}?*{[][]} | diblock substructure, can match to triblocks and tetrablocks | 107 |
+| {[][]}?*{[][]}!{[][]} diblock substructure with no other blocks | 78 |
+| {[][]}?*{[][]}?*{[][]} | triblock substructure, can match to tetrablocks and hexablocks | 15 |
+| {[][]}?*{[][]}?*{[][]}!{[][]} | triblock substructure with no other blocks | 2 |
+| {[][<]?*{[>][<]?*[>][<]}?*[>][]} | segmented topology (nested object along the backbone) | 10 |
+| {[][<]?*(?*{[>][<]?*[>][]})?*[>][]} | graft topology (nested object on the sidechain | 11 |
+| {[][]}?*(?*{[][]})?*{[][]} | 3-arm star polymer substructure | 21 |
+
+**Table 6.** Functonal groups along the backbone queries.
+
+| {[][<]C(=O)O?*[>][]} | polyester | 75 |
+| {[][<]OC(=O)O?*[>][]} | polycarbonate | 29 |
+| {[][<]NC(=O)O?*[>][]} | polyurethane | 1 |
+| {[][<]C=C?*[>][]} | polydiene | 31 |
+| {[][<]NC(=O)N?*[>][]} | polyurea | 6 |
 
 These are simple cases, but there is no restriction on the number of repeat units and end groups in the query and target, greatly increasing the complexity of search. The algorithm handles all of these cases.
 
