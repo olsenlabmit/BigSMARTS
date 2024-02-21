@@ -16,7 +16,7 @@ Molecular search is important in chemistry, biology, and informatics for identif
 
 # Test Cases
 
-BigSMARTS queries can be written with increasing restriction on the target ensemble depending on the grammatical elements used.
+**Table 1.** Queries with increasing restriction on the target ensemble matched.
 
 | BigSMARTS | Meaning| # BigSMILES Hits |
 | :---- | :---: | :---: |
@@ -27,7 +27,7 @@ BigSMARTS queries can be written with increasing restriction on the target ensem
 | {[][<][CH2][CH2]O[>],!\*[]} | prevents matches to extra repeat units not specified in the query | 45 |
 | {[][<][CH2][CH2]O[>],!\*\;!\*[]} | prevents matches to extra repeat units and end groups not specified in the query | 1 |
 
-Different string representations of the same molecular ensemble will not affect the number of matches.
+**Table 2.** Repeat unit mutations that do not affect the query ensemble.
 
 | BigSMARTS | Change | # BigSMILES Hits |
 | :---- | :---: | :---:
