@@ -85,7 +85,7 @@ Molecular search is important in chemistry, biology, and informatics for identif
 These are simple cases, but there is no restriction on the number of repeat units and end groups in the query and target, greatly increasing the complexity of search. The algorithm handles all of these cases.
 
 # Repository Location
-http://doi.org/10.5281/zenodo.4780309
+https://doi.org/10.5281/zenodo.10702689
 
 # Creators
 - Nathan J. Rebello (https://orcid.org/0000-0002-0178-7701)
@@ -94,4 +94,4 @@ http://doi.org/10.5281/zenodo.4780309
 - Bradley D. Olsen (https://orcid.org/0000-0002-7272-7140)
 
 # Rights
-The dataset is released under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) in Zenodo (doi.org/10.5281/zenodo.10702689).
+The dataset is released under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) in Zenodo (https://doi.org/10.5281/zenodo.10702689).
