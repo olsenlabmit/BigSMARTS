@@ -94,4 +94,4 @@ http://doi.org/10.5281/zenodo.4780309
 - Bradley D. Olsen (https://orcid.org/0000-0002-7272-7140)
 
 # Rights
-The dataset is released under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) in Zenodo (http://doi.org/10.5281/zenodo.4780309).
+The dataset is released under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) in Zenodo (doi.org/10.5281/zenodo.10702689).
